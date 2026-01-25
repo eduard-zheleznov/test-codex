@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TaskLink — управление задачами</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="tag">TaskLink</p>
+        <h1>Создавайте задачи и делегируйте их команде</h1>
+        <p class="subtitle">
+          Добавляйте участников по пригласительной ссылке, распределяйте работу и отслеживайте
+          прогресс — все в одном месте.
+        </p>
+        <div class="hero__actions">
+          <button class="primary" id="openInvite">Сформировать ссылку</button>
+          <button class="ghost" id="openTask">Добавить задачу</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" aria-labelledby="invite-title">
+        <div class="panel__header">
+          <div>
+            <h2 id="invite-title">Пригласительная ссылка</h2>
+            <p>Приглашайте новых участников в проект за пару секунд.</p>
+          </div>
+          <span class="badge">Доступ ограничен</span>
+        </div>
+        <div class="invite">
+          <input id="inviteLink" type="text" readonly value="" />
+          <button id="copyInvite" class="secondary">Скопировать</button>
+          <button id="refreshInvite" class="ghost">Обновить</button>
+        </div>
+        <p class="hint">При обновлении ссылка меняется, старые приглашения становятся недействительными.</p>
+      </section>
+
+      <section class="grid">
+        <div class="panel" aria-labelledby="team-title">
+          <div class="panel__header">
+            <div>
+              <h2 id="team-title">Команда проекта</h2>
+              <p>Добавляйте людей и назначайте им задачи.</p>
+            </div>
+            <span class="badge badge--soft" id="teamCount">0 участников</span>
+          </div>
+          <form id="memberForm" class="stack">
+            <label>
+              Имя участника
+              <input type="text" name="name" placeholder="Например, Анна" required />
+            </label>
+            <label>
+              Роль или отдел
+              <input type="text" name="role" placeholder="Дизайн, разработка, маркетинг" required />
+            </label>
+            <button class="primary" type="submit">Добавить в проект</button>
+          </form>
+          <ul id="memberList" class="list"></ul>
+        </div>
+
+        <div class="panel" aria-labelledby="task-title">
+          <div class="panel__header">
+            <div>
+              <h2 id="task-title">Задачи</h2>
+              <p>Создавайте задачи и назначайте исполнителей.</p>
+            </div>
+            <span class="badge badge--soft" id="taskCount">0 задач</span>
+          </div>
+          <form id="taskForm" class="stack">
+            <label>
+              Название задачи
+              <input type="text" name="title" placeholder="Например, подготовить презентацию" required />
+            </label>
+            <label>
+              Исполнитель
+              <select name="assignee" required></select>
+            </label>
+            <label>
+              Срок
+              <input type="date" name="deadline" required />
+            </label>
+            <label>
+              Описание
+              <textarea name="description" rows="3" placeholder="Опишите детали задачи"></textarea>
+            </label>
+            <button class="primary" type="submit">Создать задачу</button>
+          </form>
+          <div id="taskBoard" class="tasks"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>TaskLink — прототип веб-платформы для работы с задачами и приглашениями.</p>
+    </footer>
+
+    <template id="memberItem">
+      <li class="list__item">
+        <div>
+          <strong></strong>
+          <span></span>
+        </div>
+        <button class="ghost" type="button">Удалить</button>
+      </li>
+    </template>
+
+    <template id="taskCard">
+      <article class="task">
+        <header>
+          <div>
+            <h3></h3>
+            <p class="task__meta"></p>
+          </div>
+          <button class="ghost" type="button">Удалить</button>
+        </header>
+        <p class="task__description"></p>
+        <div class="task__footer">
+          <span class="pill"></span>
+          <button class="secondary" type="button">Отметить выполненной</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
