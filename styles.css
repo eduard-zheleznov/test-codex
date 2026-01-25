@@ -1,0 +1,432 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #141827;
+  --muted: #5e667a;
+  --primary: #3055f1;
+  --primary-dark: #213bbf;
+  --accent: #ecf1ff;
+  --border: #e2e7f3;
+  --success: #1c9b6b;
+  --speedometer-bg: #1a0a47;
+  --speedometer-shadow: #140538;
+  --speedometer-ticks: #263d85;
+  --speedometer-center: #2e1a5f;
+  --speedometer-needle: #ff3b34;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+header.hero {
+  background: linear-gradient(135deg, #223063, #3f63f2);
+  color: #fff;
+  padding: 64px 6vw 48px;
+}
+
+.hero__content {
+  max-width: 960px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+main {
+  padding: 40px 6vw 64px;
+  display: grid;
+  gap: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  border: 1px solid var(--border);
+}
+
+.panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge--soft {
+  background: var(--accent);
+  color: var(--primary-dark);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+button.primary:hover {
+  background: var(--primary-dark);
+}
+
+button.secondary {
+  background: var(--accent);
+  color: var(--primary-dark);
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+button.ghost:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid rgba(48, 85, 241, 0.2);
+  border-color: var(--primary);
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
+}
+
+.invite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.invite input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.hint {
+  font-size: 0.85rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.list__item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafbff;
+}
+
+.list__item span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.tasks {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.task {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+  display: grid;
+  gap: 12px;
+}
+
+.task header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.task__meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.task__description {
+  margin: 0;
+  color: var(--text);
+}
+
+.task__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  background: rgba(28, 155, 107, 0.12);
+  color: var(--success);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.task.completed {
+  border-color: rgba(28, 155, 107, 0.3);
+  background: #f4fffa;
+}
+
+.task.completed .pill {
+  background: rgba(28, 155, 107, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 32px 6vw 48px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.speedometer-panel {
+  background: radial-gradient(circle at top, #2f176d 0%, #1a0a47 55%, #140438 100%);
+  color: #f5f1ff;
+  border: none;
+  box-shadow: 0 18px 40px rgba(14, 5, 42, 0.4);
+}
+
+.speedometer-panel p {
+  color: rgba(245, 241, 255, 0.7);
+}
+
+.speedometer-panel .badge--soft {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.speedometer {
+  position: relative;
+  width: min(420px, 100%);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.speedometer__ticks,
+.speedometer__arc,
+.speedometer__face,
+.speedometer__needle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.speedometer__ticks {
+  background: repeating-conic-gradient(
+    from 210deg,
+    var(--speedometer-ticks) 0deg 6deg,
+    transparent 6deg 18deg
+  );
+  mask: radial-gradient(circle, transparent 58%, #000 59% 100%);
+  opacity: 0.9;
+}
+
+.speedometer__arc {
+  background: conic-gradient(
+    from 210deg,
+    #ff2b2b 0deg,
+    #ff8f1f 70deg,
+    #ffd21f 120deg,
+    #97ff1c 170deg,
+    #20ff35 210deg,
+    #1dff75 240deg,
+    #1dff75 240deg
+  );
+  mask: radial-gradient(circle, transparent 68%, #000 69% 100%);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+}
+
+.speedometer__face {
+  background: radial-gradient(circle at center, #24115a 0%, #1a0a47 55%, #110333 100%);
+  mask: radial-gradient(circle, transparent 0 52%, #000 53% 100%);
+}
+
+.speedometer__needle {
+  display: grid;
+  place-items: center;
+  transform: rotate(var(--needle-rotation, -120deg));
+  transform-origin: center;
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+
+.speedometer__needle::before {
+  content: "";
+  position: absolute;
+  width: 55%;
+  height: 6px;
+  background: var(--speedometer-needle);
+  border-radius: 999px;
+  transform: translateX(10%);
+  box-shadow: 0 4px 12px rgba(255, 59, 52, 0.6);
+}
+
+.speedometer__needle::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 8px;
+  background: var(--speedometer-needle);
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  transform: translateX(5%);
+}
+
+.speedometer__needle-core {
+  width: 12px;
+  height: 12px;
+  background: #140538;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+}
+
+.speedometer__labels {
+  position: absolute;
+  bottom: 58px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 42px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.speedometer__value {
+  position: absolute;
+  bottom: 54px;
+  font-size: clamp(2.5rem, 6vw, 3.4rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 720px) {
+  .speedometer {
+    width: min(320px, 100%);
+  }
+
+  .speedometer__labels {
+    padding: 0 28px;
+  }
+}
+
+@media (max-width: 720px) {
+  header.hero {
+    padding: 48px 6vw 36px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
