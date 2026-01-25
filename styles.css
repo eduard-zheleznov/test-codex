@@ -313,49 +313,20 @@ footer {
   place-items: center;
 }
 
-.speedometer__ticks,
-.speedometer__arc,
-.speedometer__face,
+.speedometer__dial,
 .speedometer__needle {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
 }
 
-.speedometer__ticks {
-  background: repeating-conic-gradient(
-    from 210deg,
-    var(--speedometer-ticks) 0deg 6deg,
-    transparent 6deg 18deg
-  );
-  -webkit-mask: radial-gradient(circle, transparent 58%, #000 59% 100%);
-  mask: radial-gradient(circle, transparent 58%, #000 59% 100%);
-  opacity: 0.9;
+.speedometer__dial {
+  width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
-.speedometer__arc {
-  background: conic-gradient(
-    from 210deg,
-    #ff2b2b 0deg,
-    #ff8f1f 70deg,
-    #ffd21f 120deg,
-    #97ff1c 170deg,
-    #20ff35 210deg,
-    #1dff75 240deg,
-    #1dff75 240deg
-  );
-  -webkit-mask: radial-gradient(circle, transparent 68%, #000 69% 100%);
-  mask: radial-gradient(circle, transparent 68%, #000 69% 100%);
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
-  z-index: 2;
-}
-
-.speedometer__face {
-  background: radial-gradient(circle at center, #24115a 0%, #1a0a47 55%, #110333 100%);
-  -webkit-mask: radial-gradient(circle, transparent 0 52%, #000 53% 100%);
-  mask: radial-gradient(circle, transparent 0 52%, #000 53% 100%);
-  z-index: 3;
+.speedometer__ticks line {
+  filter: drop-shadow(0 0 6px rgba(38, 61, 133, 0.5));
 }
 
 .speedometer__needle {
@@ -370,8 +341,8 @@ footer {
 .speedometer__needle::before {
   content: "";
   position: absolute;
-  width: 55%;
-  height: 6px;
+  width: 45%;
+  height: 8px;
   background: var(--speedometer-needle);
   border-radius: 999px;
   transform: translateX(10%);
@@ -381,37 +352,38 @@ footer {
 .speedometer__needle::after {
   content: "";
   position: absolute;
-  width: 60%;
-  height: 8px;
+  width: 48%;
+  height: 10px;
   background: var(--speedometer-needle);
   clip-path: polygon(0 50%, 100% 0, 100% 100%);
   transform: translateX(5%);
 }
 
 .speedometer__needle-core {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: #140538;
   border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.08);
 }
 
 .speedometer__labels {
   position: absolute;
-  bottom: 58px;
+  bottom: 52px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 42px;
-  font-weight: 600;
+  padding: 0 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.85);
   z-index: 5;
 }
 
 .speedometer__value {
   position: absolute;
-  bottom: 54px;
-  font-size: clamp(2.5rem, 6vw, 3.4rem);
+  bottom: 36px;
+  font-size: clamp(2.8rem, 7vw, 4rem);
   font-weight: 700;
   color: #fff;
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);

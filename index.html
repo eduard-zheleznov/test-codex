@@ -32,9 +32,41 @@
           <span class="badge badge--soft" id="speedometerHint">0 из 10</span>
         </div>
         <div class="speedometer" id="speedometer" aria-hidden="true">
-          <div class="speedometer__ticks"></div>
-          <div class="speedometer__arc"></div>
-          <div class="speedometer__face"></div>
+          <svg class="speedometer__dial" viewBox="0 0 300 240" role="presentation" aria-hidden="true">
+            <defs>
+              <radialGradient id="dialGlow" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#2f1a6d" />
+                <stop offset="55%" stop-color="#1e0a52" />
+                <stop offset="100%" stop-color="#14043b" />
+              </radialGradient>
+              <radialGradient id="dialInner" cx="50%" cy="40%" r="65%">
+                <stop offset="0%" stop-color="#2b1568" />
+                <stop offset="60%" stop-color="#1b0a4b" />
+                <stop offset="100%" stop-color="#120338" />
+              </radialGradient>
+              <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ff2b2b" />
+                <stop offset="30%" stop-color="#ff8f1f" />
+                <stop offset="55%" stop-color="#ffd21f" />
+                <stop offset="75%" stop-color="#8bff1c" />
+                <stop offset="100%" stop-color="#1dff75" />
+              </linearGradient>
+              <filter id="arcGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="rgba(255,255,255,0.5)" />
+              </filter>
+            </defs>
+            <circle cx="150" cy="150" r="118" fill="url(#dialGlow)" />
+            <circle cx="150" cy="150" r="104" fill="url(#dialInner)" />
+            <path
+              d="M 46.1 90 A 120 120 0 1 1 253.9 90"
+              fill="none"
+              stroke="url(#arcGradient)"
+              stroke-width="16"
+              stroke-linecap="round"
+              filter="url(#arcGlow)"
+            />
+            <g id="speedometerTicks" class="speedometer__ticks"></g>
+          </svg>
           <div class="speedometer__needle">
             <span class="speedometer__needle-core"></span>
           </div>

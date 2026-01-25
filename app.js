@@ -16,6 +16,7 @@ const taskCount = document.getElementById("taskCount");
 const speedometer = document.getElementById("speedometer");
 const speedometerValue = document.getElementById("speedometerValue");
 const speedometerHint = document.getElementById("speedometerHint");
+const speedometerTicks = document.getElementById("speedometerTicks");
 
 const state = {
   members: [
@@ -126,6 +127,31 @@ const updateSpeedometer = () => {
   }
 };
 
+const renderSpeedometerTicks = () => {
+  if (!speedometerTicks) return;
+  speedometerTicks.innerHTML = "";
+  const center = { x: 150, y: 150 };
+  const outerRadius = 138;
+  const innerRadius = 124;
+
+  for (let i = 0; i <= 10; i += 1) {
+    const angle = (-120 + (i / 10) * 240) * (Math.PI / 180);
+    const x1 = center.x + Math.cos(angle) * innerRadius;
+    const y1 = center.y + Math.sin(angle) * innerRadius;
+    const x2 = center.x + Math.cos(angle) * outerRadius;
+    const y2 = center.y + Math.sin(angle) * outerRadius;
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", x1.toFixed(1));
+    line.setAttribute("y1", y1.toFixed(1));
+    line.setAttribute("x2", x2.toFixed(1));
+    line.setAttribute("y2", y2.toFixed(1));
+    line.setAttribute("stroke", "#2b3f86");
+    line.setAttribute("stroke-width", "6");
+    line.setAttribute("stroke-linecap", "round");
+    speedometerTicks.appendChild(line);
+  }
+};
+
 memberForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(memberForm);
@@ -187,3 +213,4 @@ openTask.addEventListener("click", () => taskForm.scrollIntoView({ behavior: "sm
 updateInvite();
 renderMembers();
 renderTasks();
+renderSpeedometerTicks();
