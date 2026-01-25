@@ -288,6 +288,11 @@ footer {
   font-size: 0.9rem;
 }
 
+.update-label {
+  font-weight: 600;
+  color: #24135c;
+}
+
 .speedometer-panel {
   background: radial-gradient(circle at top, #2f176d 0%, #1a0a47 55%, #140438 100%);
   color: #f5f1ff;

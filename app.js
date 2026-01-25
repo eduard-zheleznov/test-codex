@@ -17,6 +17,7 @@ const speedometer = document.getElementById("speedometer");
 const speedometerValue = document.getElementById("speedometerValue");
 const speedometerHint = document.getElementById("speedometerHint");
 const speedometerTicks = document.getElementById("speedometerTicks");
+const updateLabel = document.getElementById("updateLabel");
 
 const state = {
   members: [
@@ -214,3 +215,10 @@ updateInvite();
 renderMembers();
 renderTasks();
 renderSpeedometerTicks();
+
+if (updateLabel) {
+  const stored = Number(localStorage.getItem("tasklinkUpdate")) || 4;
+  const next = stored + 1;
+  localStorage.setItem("tasklinkUpdate", String(next));
+  updateLabel.textContent = `Обновление ${next}`;
+}
