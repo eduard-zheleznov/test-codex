@@ -328,8 +328,10 @@ footer {
     var(--speedometer-ticks) 0deg 6deg,
     transparent 6deg 18deg
   );
+  -webkit-mask: radial-gradient(circle, transparent 58%, #000 59% 100%);
   mask: radial-gradient(circle, transparent 58%, #000 59% 100%);
   opacity: 0.9;
+  z-index: 1;
 }
 
 .speedometer__arc {
@@ -343,13 +345,17 @@ footer {
     #1dff75 240deg,
     #1dff75 240deg
   );
+  -webkit-mask: radial-gradient(circle, transparent 68%, #000 69% 100%);
   mask: radial-gradient(circle, transparent 68%, #000 69% 100%);
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+  z-index: 2;
 }
 
 .speedometer__face {
   background: radial-gradient(circle at center, #24115a 0%, #1a0a47 55%, #110333 100%);
+  -webkit-mask: radial-gradient(circle, transparent 0 52%, #000 53% 100%);
   mask: radial-gradient(circle, transparent 0 52%, #000 53% 100%);
+  z-index: 3;
 }
 
 .speedometer__needle {
@@ -358,7 +364,7 @@ footer {
   transform: rotate(var(--needle-rotation, -120deg));
   transform-origin: center;
   transition: transform 0.4s ease;
-  z-index: 3;
+  z-index: 4;
 }
 
 .speedometer__needle::before {
@@ -399,6 +405,7 @@ footer {
   padding: 0 42px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
+  z-index: 5;
 }
 
 .speedometer__value {
@@ -408,6 +415,7 @@ footer {
   font-weight: 700;
   color: #fff;
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  z-index: 5;
 }
 
 @media (max-width: 720px) {
